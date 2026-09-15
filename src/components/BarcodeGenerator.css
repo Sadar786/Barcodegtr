@@ -1,0 +1,122 @@
+﻿.barcode-generator {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 440px;
+  max-width: 100%;
+  text-align: left;
+}
+
+.input-section label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input-section input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--border, #ccc);
+  border-radius: 6px;
+  font-size: 16px;
+  color: var(--text-h, #222);
+  background: var(--bg, #fff);
+}
+
+.input-section input:focus-visible {
+  outline: 2px solid #638ba3;
+  outline-offset: 2px;
+}
+
+.barcode-help {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.download-button {
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 6px;
+  background: #21252f;
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.download-button:hover:not(:disabled) {
+  background: #394251;
+}
+
+.download-button:focus-visible {
+  outline: 2px solid #638ba3;
+  outline-offset: 3px;
+}
+
+.download-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.label-preview {
+  position: relative;
+  width: 600px;
+  max-width: 100%;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+.label-background {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Coordinates follow the lower label in the original 738 × 1600 photo.
+   Preserve the logo, ownership text, screws, and worn label edges. */
+.dynamic-barcode-area {
+  position: absolute;
+  left: 19.8%;
+  top: 43.05%;
+  width: 55.2%;
+  height: 5.05%;
+  box-sizing: border-box;
+  padding: 0.5% 1% 0;
+  transform: skewY(-2.8deg);
+  transform-origin: top left;
+  /* Paper tones sampled from the cooler's original barcode label. */
+  background: linear-gradient(90deg, #b4a3a2, #b3a4a3 25%, #ab9d99 50%, #ada49e 75%, #a3a199);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.barcode-svg {
+  width: 100%;
+  height: 62%;
+  flex-shrink: 0;
+  display: block;
+}
+
+.barcode-number {
+  width: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  font-size: 3.3cqw;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  color: #21252f;
+  text-align: center;
+  white-space: nowrap;
+}
