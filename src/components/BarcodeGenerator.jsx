@@ -61,7 +61,16 @@ export default function BarcodeGenerator() {
 
   return (
     <div className="barcode-generator">
-      <div className="input-section">
+    
+
+      <div ref={previewRef} className="label-preview" role="img" aria-label={isValid ? `Cooler with Pepsi label barcode ${barcodeValue}` : "Cooler with a blank barcode label"}>
+        <img src={coolerBackground} alt="" className="label-background" />
+        <div className="dynamic-barcode-area" aria-hidden="true">
+          <svg ref={barcodeRef} className="barcode-svg" />
+          <div className="barcode-number">{isValid ? barcodeValue : ""}</div>
+        </div>
+      </div>
+        <div className="input-section">
         <label htmlFor="barcode-number">Barcode Number</label>
         <input
           id="barcode-number"
@@ -87,14 +96,6 @@ export default function BarcodeGenerator() {
           {isDownloading ? "Preparing image…" : "Download PNG"}
         </button>
         {downloadError && <p className="barcode-help" role="alert">{downloadError}</p>}
-      </div>
-
-      <div ref={previewRef} className="label-preview" role="img" aria-label={isValid ? `Cooler with Pepsi label barcode ${barcodeValue}` : "Cooler with a blank barcode label"}>
-        <img src={coolerBackground} alt="" className="label-background" />
-        <div className="dynamic-barcode-area" aria-hidden="true">
-          <svg ref={barcodeRef} className="barcode-svg" />
-          <div className="barcode-number">{isValid ? barcodeValue : ""}</div>
-        </div>
       </div>
     </div>
   );
